@@ -1,4 +1,4 @@
-package beans;
+package pl.lucky.beans.decorators;
 
 public interface MessageDecorator {
 
