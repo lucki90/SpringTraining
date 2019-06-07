@@ -4,19 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.lucky.beans.decorators.Decorator;
 import pl.lucky.beans.decorators.MessageDecorator;
+import pl.lucky.beans.producers.Message;
 import pl.lucky.beans.producers.MessageProducer;
 import pl.lucky.beans.producers.Producer;
 
 @Component
 public class MessagePrinter {
 
+    @Autowired
+    @Message(type = Message.MessageType.FILE)
     private MessageProducer producer;
     private MessageDecorator decorator;
 
-    @Autowired
-    public MessagePrinter(@Producer(type = Producer.ProducerType.FILE) MessageProducer producer) {
-        this.producer = producer;
-    }
 
     public MessageDecorator getDecorator() {
         return decorator;
